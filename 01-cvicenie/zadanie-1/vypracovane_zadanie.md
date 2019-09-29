@@ -10,6 +10,11 @@ Uloženie videa do súboru:
 ytdl "http://www.youtube.com/watch?v=_HSylqgVYQI" > myvideo.mp4
 ```
 
+Stiahnutie videa a uloženie vo formáte mp3:
+```javascript
+ytdl http://www.youtube.com/watch?v=_HSylqgVYQI | ffmpeg -i pipe:0 -b:a 192K -vn myfile.mp3
+``` 
+
 ### Zdroje
 Zdrojový kód:
 https://www.npmjs.com/package/ytdl?fbclid=IwAR1FMlUATnUIddYCo7ClQZhhuWQK5rAyDft4pZB-WRq-ozoe_4hFYyH6Ovc 
