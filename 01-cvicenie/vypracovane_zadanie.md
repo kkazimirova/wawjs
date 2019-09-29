@@ -9,7 +9,7 @@ Markdown Here je plugin do prehliadača Google Chrome, využíva Chrome knižnic
 Rozšírenie je možné využiť pri písaní mailov z akéhokoľvek webového mailového klienta. Ovládanie pluginu je jednoduché pomocou kontextového menu priamo v textovom poli vytváraného mailu. 
 
 ### Ukážka
-tu bude obrazoook 
+![ Ukazka MarkdownHere aplikácie ](./markdownHere.png)
 
 
 ## Polacode - Polaroid for your code
@@ -20,7 +20,7 @@ https://scotch.io/tutorials/create-your-first-visual-studio-code-extension
 Nástroj na formátovanie kopírovaného kódu - pri vytváraní screenshotov kódu je vhodné mať možnosť kód ešte pred tým naformátovať, umožňuje tiež vybrať si tému, v ktorej sa kód bude dormátovať - skúšať rôzne farebné kombinácie a fonty. Polacode je písaný v JavaScripte s použitím YO nástroja na vytváranie pluginov do Visual Studio Code editora, využíva vscode knižnicu na prácu s Visual Studio Code. 
 
 ### Ukážka
-obrazoook 
+![ Ukazka Polacode aplikácie ](./polacode.gif)
 
 Príklad: zaregistruje do Visual Studio Code prikaz ` polacode.activate `, ktorý zobrazí "viewport" pre prácu s polacode. 
 ```javascript
