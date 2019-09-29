@@ -73,8 +73,8 @@ https://scotch.io/tutorials/create-your-first-visual-studio-code-extension
 Plugin do prehliadača Google Chrome napísaný v JavaScripte. Umožňuje spraviť screenshot celej stránky, na ktorej sa práve nachádzame a uložiť si ho v rôznych formátoch, takže môže byť neskôr využitý napr. v dokumentáciách projektov. 
 
 ### Ukážka
-![ Ukazka Full Page Screen Capture aplikácie 1](./lala)
-![ Ukazka Full Page Screen Capture aplikácie 1](./lala)
+![ Ukazka Full Page Screen Capture aplikácie 1](./screen1.jpg)
+![ Ukazka Full Page Screen Capture aplikácie 1](./screen2.jpg)
 
 ### Zdroje
 Zdrojový kód:
