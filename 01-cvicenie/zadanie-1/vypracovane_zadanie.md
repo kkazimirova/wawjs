@@ -1,20 +1,19 @@
 # Zaujímavé JavaScript aplikácie
-## Markdown Here 
+## Node - ytdl 
 
 ### Charakteristika
-Markdown Here je plugin do prehliadača Google Chrome, využíva Chrome knižnicu na tvorbu pluginov. Je to rozšírenie, vďaka ktorému je možné písať emaily pomocou značkovacieho jazyka Markdown. Text je renderovaný pred odoslaním a po renderovaní je vždy možný návrat späť do podoby Markdownu. Užitočný nástroj na jednoduché formátovanie emailov, hlavne ak je používateľ zvyknutý na Markdown značky. 
-
-Rozšírenie je možné využiť pri písaní mailov z akéhokoľvek webového mailového klienta. Ovládanie pluginu je jednoduché pomocou kontextového menu priamo v textovom poli vytváraného mailu. 
+Node ytdl je CLI aplikácia na štahovanie videí z YouTube priamo z príkazového riadku. 
 
 ### Ukážka
-![ Ukazka MarkdownHere aplikácie ](./markdownHere.png)
+Uloženie videa do súboru: 
+```javascript
+ytdl "http://www.youtube.com/watch?v=_HSylqgVYQI" > myvideo.mp4
+```
 
 ### Zdroje
 Zdrojový kód:
-https://github.com/adam-p/markdown-here 
+https://www.npmjs.com/package/ytdl?fbclid=IwAR1FMlUATnUIddYCo7ClQZhhuWQK5rAyDft4pZB-WRq-ozoe_4hFYyH6Ovc 
 
-Návod na vytváranie rozšírení pre Google Chrome:
-https://thoughtbot.com/blog/how-to-make-a-chrome-extension
 
 
 ## Polacode - Polaroid for your code
@@ -27,36 +26,36 @@ Nástroj na formátovanie kopírovaného kódu - pri vytváraní screenshotov k�
 
 Príklad: zaregistruje do Visual Studio Code prikaz ` polacode.activate `, ktorý zobrazí "viewport" pre prácu s polacode. 
 ```javascript
-      vscode.commands.registerCommand('polacode.activate', () => {
-	    panel = vscode.window.createWebviewPanel('polacode', P_TITLE, 2, {
-	      enableScripts: true,
-	      localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'webview'))]
-	    })
-	
+vscode.commands.registerCommand('polacode.activate', () => {
+    panel = vscode.window.createWebviewPanel('polacode', P_TITLE, 2, {
+      enableScripts: true,
+      localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'webview'))]
+    })
 
-	    panel.webview.html = getHtmlContent(htmlPath)
-	
 
-	    const selectionListener = setupSelectionSync()
-	    panel.onDidDispose(() => {
-	      selectionListener.dispose()
-	    })
-	
+    panel.webview.html = getHtmlContent(htmlPath)
 
-	    setupMessageListeners()
-	
 
-	    const fontFamily = vscode.workspace.getConfiguration('editor').fontFamily
-	    const bgColor = context.globalState.get('polacode.bgColor', '#2e3440')
-	    panel.webview.postMessage({
-	      type: 'init',
-	      fontFamily,
-	      bgColor
-	    })
-	
+    const selectionListener = setupSelectionSync()
+    panel.onDidDispose(() => {
+      selectionListener.dispose()
+    })
 
-	    syncSettings()
-	  })
+
+    setupMessageListeners()
+
+
+    const fontFamily = vscode.workspace.getConfiguration('editor').fontFamily
+    const bgColor = context.globalState.get('polacode.bgColor', '#2e3440')
+    panel.webview.postMessage({
+      type: 'init',
+      fontFamily,
+      bgColor
+    })
+
+
+    syncSettings()
+  })
 ```
 
 ### Zdroje
