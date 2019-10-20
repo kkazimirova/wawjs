@@ -16,8 +16,6 @@ module.exports = {
 };
 // Object.keys supporting Symbols and non-enumerables 
 function allOwnKeys(o) {
-	console.log(Object.getOwnPropertySymbols(o))
-	console.log(Object.getOwnPropertyNames(o).concat(Object.getOwnPropertySymbols(o)))
 	return Object.getOwnPropertyNames(o).concat(Object.getOwnPropertySymbols(o));
 }
 // Object.values supporting Symbols and non-enumerables 
@@ -64,18 +62,48 @@ function forIn(obj, callback) {
 // same values 
 // and same property ownership 
 function shallowClone(obj) {
-	let protoChain = getProtoChain(obj);
+	if (obj === null) {
+		return null;
+	}
 
+	let clone = Object.create(Object.getPrototypeOf(obj));
+	let descriptors = Object.getOwnPropertyDescriptors(obj);
 
+	for (key of allOwnKeys(obj)) {
+		let descriptor = descriptors[key];
+
+		Object.defineProperty(clone, key, {
+			writable: descriptor.writable,
+			value: descriptor.value,
+			enumerable: descriptor.enumerable,
+			configurable: descriptor.configurable
+		})
+		
+	}
+
+	return clone;
 }
 
 // if the property exists only in proto chain
 // not on object
 function hasInheritedProperty(obj, prop) {
-  
+  	let all = allKeys(obj);
+  	let ownKeys = allOwnKeys(obj);
+
+  	let difference = all.filter(function (x) {
+  		return !ownKeys.includes(x);
+  	});
+
+  	return difference.includes(prop);
 }
 
 function hasOverridenProperty(obj, prop) {
-  
+	let parents = allKeys(Object.getPrototypeOf(obj));
+	let ownKeys = allOwnKeys(obj);
 
+	let common = parents.filter(function (x) {
+		return ownKeys.includes(x);
+	});
+
+	return common.includes(prop);
 }
