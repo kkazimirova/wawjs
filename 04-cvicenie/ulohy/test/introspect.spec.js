@@ -23,7 +23,6 @@ describe("cvicenie04 - Object properties concepts", function() {
       assert(Object.keys(o), ["a"],
         "Object.keys() does not return Symbols");
 
-
       assert.deepStrictEqual(allOwnKeys(o), ['a', s],
         "allOwnKeys returns also symbols");
     });
@@ -213,7 +212,7 @@ describe("cvicenie04 - Object properties concepts", function() {
       var props2 = [];
       forIn(y, (p) => props2.push(p));
 
-      assert.deepStrictEqual(props2, ['a', 'b'],
+      assert.deepStrictEqual(props2, ['b', 'a'],
         "but visible using forIn");
     });
   });

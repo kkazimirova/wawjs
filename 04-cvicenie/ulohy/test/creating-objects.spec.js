@@ -56,7 +56,7 @@ describe("Creating objects", function() {
         return this.a;
       }
     };
-    let o; // TODO: inherit from base using Object.create... 
+    let o = Object.create(b); // TODO: inherit from base using Object.create... 
     
 
     assert(typeof o === "object");
@@ -71,7 +71,7 @@ describe("Creating objects", function() {
 
   });
   it("05 - create object not inherited from anything", function() {
-    let o; //TODO:
+    let o = {}; //TODO:
     
 
     assert(typeof o === "object");
